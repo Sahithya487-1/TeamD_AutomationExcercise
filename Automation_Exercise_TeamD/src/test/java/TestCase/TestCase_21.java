@@ -2,13 +2,16 @@ package TestCase;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import generic_Repository.BaseConfig;
+
 import java.time.Duration;
 
-public class TestCase_21 {
-    public static void main(String[] args) {
+public class TestCase_21 extends BaseConfig{
+	@Test
+    public void Add_review_on_product() {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // 2. Navigate to url
@@ -44,6 +47,5 @@ public class TestCase_21 {
         }
 
 // Close browser
-        driver.quit();
     }
 }

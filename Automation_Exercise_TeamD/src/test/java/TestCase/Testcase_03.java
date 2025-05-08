@@ -10,9 +10,8 @@ import page_Repository.HomePage;
 
 public class Testcase_03 extends BaseConfig{
 	@Test
-    public static void main() {
+    public static void Login_User_with_incorrect_email_and_password() {
 // 1. Launch browser
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // 2. Navigate to url
@@ -52,6 +51,5 @@ public class Testcase_03 extends BaseConfig{
         }
         
 // Close browser
-        driver.close();
     }
 }

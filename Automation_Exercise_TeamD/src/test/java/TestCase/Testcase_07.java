@@ -6,14 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import generic_Repository.BaseConfig;
 import page_Repository.HomePage;
 
-public class Testcase_07 {
+public class Testcase_07 extends BaseConfig{
 	@Test
-    public void main() {
+    public void Verify_Test_Cases_Page() {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         
 // 2. Navigate to url
@@ -43,7 +42,6 @@ public class Testcase_07 {
         }
         
 // Close browser
-        driver.quit();
         System.out.println("Browser closed - Test completed");
     }
 }

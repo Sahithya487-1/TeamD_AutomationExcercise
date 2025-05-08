@@ -2,19 +2,16 @@ package TestCase;
 
 import java.time.Duration;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import generic_Repository.BaseConfig;
 import page_Repository.AutomationExerciseLoginPOM;
 import page_Repository.HomePage;
 
-public class Testcase_05 {
+public class Testcase_05 extends BaseConfig{
 	@Test
-    public static void main() {
+    public static void Register_User_with_existing_email() {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         
 // 2. Navigate to url
@@ -56,7 +53,6 @@ public class Testcase_05 {
        }
        
 // Close browser
-        driver.quit();
         System.out.println("Browser closed - Test completed");
     }
 }

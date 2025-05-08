@@ -6,12 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class Testcase_13 {
-    public static void main(String[] args) {
+import generic_Repository.BaseConfig;
+
+public class Testcase_13 extends BaseConfig{
+	@Test
+    public void Verify_Product_quantity_in_Cart() {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // 2. Navigate to url
@@ -55,7 +57,6 @@ public class Testcase_13 {
         }
 
 // Close browser
-        driver.quit();
         System.out.println("Test completed");
     }
 }

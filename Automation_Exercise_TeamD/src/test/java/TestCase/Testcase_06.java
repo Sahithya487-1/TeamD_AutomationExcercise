@@ -18,9 +18,8 @@ import page_Repository.HomePage;
 
 public class Testcase_06 extends BaseConfig{
 	@Test
-    public void main() throws InterruptedException, AWTException {
+    public void Contact_Us_Form() throws InterruptedException, AWTException {
 // 1. Launch browser
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // 2. Navigate to url
@@ -99,7 +98,6 @@ public class Testcase_06 extends BaseConfig{
 		}
 
 // Close browser
-        driver.close();
         System.out.println("Test completed");
     }
 }

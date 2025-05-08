@@ -8,12 +8,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
-public class Testcase_12 {
-    public static void main(String[] args) {
+import generic_Repository.BaseConfig;
+
+public class Testcase_12 extends BaseConfig{
+	@Test
+    public void Add_Products_in_Cart() {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         Actions actions = new Actions(driver);
 
@@ -70,7 +72,6 @@ public class Testcase_12 {
         }
 
 // Close browser
-        driver.quit();
         System.out.println("Test completed");
     }
 }

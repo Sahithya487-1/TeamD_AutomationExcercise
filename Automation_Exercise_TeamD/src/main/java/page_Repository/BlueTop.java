@@ -18,6 +18,46 @@ public class BlueTop {
 	public boolean getBlueTop() {
 		return blueTop.isDisplayed();
 	}
+	
+//	Category 
+	@FindBy (xpath="//p[text()='Category: Women > Tops']")
+	private WebElement proCategory;
+	
+	public boolean getCategory() {
+		return proCategory.isDisplayed();
+	}
+	
+//	Price
+	@FindBy (xpath="//span[text()='Rs. 500']")
+	private WebElement proPrice;
+	
+	public boolean getPrice() {
+		return proPrice.isDisplayed();
+	}
+	
+//	Availability of the product
+	@FindBy (xpath="//p[text()=' In Stock']")
+	private WebElement proStock;
+	
+	public boolean getStock() {
+		return proStock.isDisplayed();
+	}
+//	Condition of the product
+	@FindBy (xpath="//p[text()=' New']")
+	private WebElement proCondition;
+	
+	public boolean getCondition() {
+		return proCondition.isDisplayed();
+	}
+	
+//	Product brand
+	@FindBy (xpath="//p[text()=' Polo']")
+	private WebElement proBrand;
+	
+	public boolean getBrand() {
+		return proBrand.isDisplayed();
+	}
+	
 //	Quantity modification
 	@FindBy (id="quantity")
 	private WebElement quantity;

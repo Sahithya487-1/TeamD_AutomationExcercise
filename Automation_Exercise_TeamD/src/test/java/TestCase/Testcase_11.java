@@ -1,15 +1,23 @@
 package TestCase;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
-public class Testcase_11 {
-    public static void main(String[] args) {
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import generic_Repository.BaseConfig;
+import page_Repository.HomePage;
+
+public class Testcase_11 extends BaseConfig{
+	@Test
+    public void Verify_Subscription_in_Cart_page() {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+// Initialize Page Objects
+        HomePage homePage = new HomePage(driver);
 
 // 2. Navigate to url
         driver.get("http://automationexercise.com");
@@ -20,8 +28,8 @@ public class Testcase_11 {
             System.out.println("Home page is visible");
         }
 
-// 4. Click 'Cart' button
-        driver.findElement(By.xpath("//a[contains(text(),'Cart')]")).click();
+// 4. Click 'Cart' button - Using HomePage POM
+        homePage.clickCartLink();
         System.out.println("Clicked Cart button");
 
 // 5. Scroll down to footer
@@ -29,15 +37,14 @@ public class Testcase_11 {
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", footer);
         System.out.println("Scrolled to footer");
 
-// 6. Verify text 'SUBSCRIPTION'
-        WebElement subscription = driver.findElement(By.xpath("//h2[contains(text(),'Subscription')]"));
-        if (subscription.isDisplayed()) {
+// 6. Verify text 'SUBSCRIPTION' - Using HomePage POM
+        if (homePage.isSubscriptionSectionDisplayed()) {
             System.out.println("'SUBSCRIPTION' text is visible");
         }
 
-// 7. Enter email and subscribe
-        driver.findElement(By.id("susbscribe_email")).sendKeys("demoemail@gmail.com");
-        driver.findElement(By.id("subscribe")).click();
+// 7. Enter email and subscribe - Using HomePage POM
+        homePage.enterSubscriptionEmail("demoemail@gmail.com");
+        homePage.clickSubscribeButton();
         System.out.println("Entered email and subscribed");
 
 // 8. Verify success message
@@ -47,7 +54,6 @@ public class Testcase_11 {
         }
 
 // Close browser
-        driver.quit();
         System.out.println("Test completed");
     }
 }

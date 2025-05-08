@@ -3,13 +3,16 @@ package TestCase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import generic_Repository.BaseConfig;
+
 import java.time.Duration;
 
-public class Testcase_14 {
-    public static void main(String[] args) {
+public class Testcase_14 extends BaseConfig{
+	@Test
+    public void Place_Order_Register_while_Checkout() {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // 2. Navigate to url
@@ -116,6 +119,6 @@ public class Testcase_14 {
         driver.findElement(By.xpath("//a[text()='Continue']")).click();
 
 // Close browser
-        driver.quit();
+        
     }
 }

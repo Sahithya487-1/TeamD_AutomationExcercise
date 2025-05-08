@@ -1,27 +1,30 @@
 package TestCase;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 
-public class TestCase_25 {
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
-    public static void main(String[] args) throws InterruptedException {
+import generic_Repository.BaseConfig;
+import page_Repository.HomePage;
+
+public class TestCase_25 extends BaseConfig{
+	@Test
+    public void Verify_Scroll_Up_using_Arrow_button_and_Scroll_Down_functionality() throws InterruptedException {
 // 1. Launch browser
-        ChromeDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         
-// 2. Navigate to url 'http://automationexercise.com'
+// 2. Navigate to url 'http://automationexercise.com
+        HomePage hPage = new HomePage(driver);
+        
         driver.get("http://automationexercise.com");
         
 // 3. Verify that home page is visible successfully
-        WebElement homePageElement = driver.findElement(By.xpath("//a[contains(text(),'Home')]"));
-        if(homePageElement.isDisplayed()) {
+        if(driver.getCurrentUrl().equals("https://www.automationexercise.com/")) {
             System.out.println("Home page is visible successfully");
+        }else {
+        	System.out.println("Home page is not visible");
         }
         
         // Create Actions class instance
@@ -31,23 +34,22 @@ public class TestCase_25 {
         actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).keyUp(Keys.CONTROL).perform();
         
 // 5. Verify 'SUBSCRIPTION' is visible
-        WebElement subscriptionElement = driver.findElement(By.xpath("//h2[contains(text(),'Subscription')]"));
-        if(subscriptionElement.isDisplayed()) {
+        if(hPage.isSubscriptionSectionDisplayed()) {
             System.out.println("SUBSCRIPTION is visible");
+        }else {
+        	System.out.println("SUBSCRIPTION is not visible");
         }
         
 // 6. Click on arrow at bottom right side to move upward
-        WebElement scrollUpArrow = driver.findElement(By.id("scrollUp")); // Adjust the locator as needed
-        scrollUpArrow.click();
-        
-       Thread.sleep(1000);
+        hPage.clickScrollUpButton();
         
 // 7. Verify that page is scrolled up and text is visible
-        WebElement textElement = driver.findElement(By.xpath("//h2[contains(text(),'Full-Fledged practice website for Automation Engineers')]"));
-        if(textElement.isDisplayed()) {
-            System.out.println("Page is scrolled up and text is visible");
-        }
+       if(hPage.isFeaturedItemsSectionDisplayed()) {
+           System.out.println("Page is scrolled up and text is visible");
+       }else {
+       	System.out.println("Page did not scrolled up");
+       }
         
-        driver.close();
+//        driver.close();
     }
 }

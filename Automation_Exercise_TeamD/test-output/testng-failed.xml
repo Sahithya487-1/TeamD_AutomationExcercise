@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [RegressionSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="username" value="Uttam"/>
     <classes>
-      <class name="TestCase.Testcase_01">
+      <class name="TestCase.Testcase_19">
         <methods>
-          <include name="main"/>
-          <include name="BrosweSetup"/>
+          <include name="View_and_Cart_Brand_Products"/>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
         </methods>
-      </class> <!-- TestCase.Testcase_01 -->
+      </class> <!-- TestCase.Testcase_19 -->
+      <class name="TestCase.TestCase_25">
+        <methods>
+          <include name="Verify_Scroll_Up_using_Arrow_button_and_Scroll_Down_functionality"/>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.TestCase_25 -->
+      <class name="TestCase.TestCase_22">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+          <include name="Add_to_cart_from_Recommended_items"/>
+        </methods>
+      </class> <!-- TestCase.TestCase_22 -->
+      <class name="TestCase.Testcase_02">
+        <methods>
+          <include name="Login_User_with_correct_email_and_password"/>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.Testcase_02 -->
+      <class name="TestCase.TestCase_21">
+        <methods>
+          <include name="Add_review_on_product"/>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.TestCase_21 -->
+      <class name="TestCase.Testcase_18">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="View_Category_Products"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.Testcase_18 -->
+      <class name="TestCase.Testcase_16">
+        <methods>
+          <include name="Place_Order_Login_before_Checkout"/>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.Testcase_16 -->
+      <class name="TestCase.Testcase_17">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="Remove_Products_From_Cart"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.Testcase_17 -->
+      <class name="TestCase.Testcase_04">
+        <methods>
+          <include name="Logout_User"/>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.Testcase_04 -->
+      <class name="TestCase.TestCase_24">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="Download_Invoice_after_purchase_order"/>
+          <include name="browserSetup"/>
+        </methods>
+      </class> <!-- TestCase.TestCase_24 -->
+      <class name="TestCase.Testcase_20">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+          <include name="Search_Products_and_Verify_Cart_After_Login"/>
+        </methods>
+      </class> <!-- TestCase.Testcase_20 -->
+      <class name="TestCase.TestCase_23">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="browserSetup"/>
+          <include name="Verify_address_details_in_checkout_page"/>
+        </methods>
+      </class> <!-- TestCase.TestCase_23 -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [RegressionSuite] -->

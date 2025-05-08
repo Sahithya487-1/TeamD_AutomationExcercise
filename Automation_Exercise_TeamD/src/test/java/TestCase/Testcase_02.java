@@ -11,9 +11,8 @@ import page_Repository.HomePage;
 
 public class Testcase_02 extends BaseConfig{
 	@Test
-    public void main() {
+    public void Login_User_with_correct_email_and_password() {
 // 1. Launch browser
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         
 // 2. Navigate to url 'http://automationexercise.com'
@@ -66,6 +65,5 @@ public class Testcase_02 extends BaseConfig{
 		}
         
 // Close browser
-        driver.close();
     }
 }

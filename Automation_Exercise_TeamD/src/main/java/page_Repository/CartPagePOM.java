@@ -27,7 +27,11 @@ public class CartPagePOM {
 	 private WebElement yourBillingAddress;
 	 
 //	 
+	 @FindBy(xpath = "//textarea[@class='form-control']")
+	 private WebElement descriptionArea;
 	 
+	 @FindBy(xpath = "//a[text()='Place Order']")
+	 private WebElement placeOrderButton;
 
 	 public CartPagePOM(WebDriver driver) {
 		 PageFactory.initElements(driver, this);
@@ -47,12 +51,20 @@ public class CartPagePOM {
 		 cocButton.click();
 	 }
 	 
-	 public void verifyDeliveryA() {
-		 yourdeliveryAddress.isDisplayed();
+	 public boolean verifyDeliveryA() {
+		 return yourdeliveryAddress.isDisplayed();
 	 }
 	 
-	 public void verifyBillingA() {
-		 yourBillingAddress.isDisplayed();
+	 public boolean verifyBillingA() {
+		 return yourBillingAddress.isDisplayed();
+	 }
+	 
+	 public void enterDescription(String s) {
+		 descriptionArea.sendKeys(s);
+	 }
+	 
+	 public void clickPlaceOrder() {
+		 placeOrderButton.click();
 	 }
 
 }

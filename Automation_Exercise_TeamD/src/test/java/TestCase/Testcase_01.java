@@ -2,9 +2,6 @@ package TestCase;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import generic_Repository.BaseConfig;
@@ -15,15 +12,13 @@ import page_Repository.HomePage;
 
 public class Testcase_01 extends BaseConfig {
 @Test
-	public void main() {
-	driver.manage().window().maximize();
+	public void Register_User() {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         String pageTitle = driver.getTitle();
         if(pageTitle.equalsIgnoreCase("Automation Exercise")) {
             System.out.println("Home page is visible successfully");
         } else {
             System.out.println("Home page is not visible");
-            driver.quit();
             return;
         }
         
@@ -39,7 +34,7 @@ public class Testcase_01 extends BaseConfig {
         	 System.out.println("'New User Signup!' is visible");
         } else {
         	System.out.println("'New User Signup!' is not visible");
-        	driver.quit();
+        	return;
 		}
         
 // 6. Enter name and email address
@@ -124,7 +119,6 @@ public class Testcase_01 extends BaseConfig {
         System.out.println("Complete signup and account deletion flow executed successfully");
        
 // Close the browser
-       driver.close();
 
 	}
 

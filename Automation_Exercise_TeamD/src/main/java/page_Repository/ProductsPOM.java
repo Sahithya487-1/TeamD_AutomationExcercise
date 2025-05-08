@@ -1,11 +1,22 @@
 package page_Repository;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProductsPOM {
+	@FindBy (id="search_product")
+	private WebElement enterProductName;
+	
+	@FindBy (id="submit_search")
+	private WebElement clickProduct;
+	
+	@FindBy (xpath ="//h2[text()='Searched Products']")
+	private WebElement searchProductElement;
+	
 	@FindBy (xpath="//h2[text()='All Products']")
 	private WebElement allProductText;
 	
@@ -58,6 +69,18 @@ public class ProductsPOM {
 //...........................	Constructed .....................................
 	public ProductsPOM(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public boolean verifySearched() {
+		return searchProductElement.isDisplayed();
+	}
+	
+	public void addProductName(String s) {
+		enterProductName.sendKeys(s);
+	}
+	
+	public void clickProductButton() {
+		clickProduct.click();
 	}
 	
 	public boolean getProductText() {

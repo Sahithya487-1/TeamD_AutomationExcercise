@@ -3,13 +3,16 @@ package TestCase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import generic_Repository.BaseConfig;
+
 import java.time.Duration;
 
-public class TestCase_23 {
-    public static void main(String[] args) throws InterruptedException {
+public class TestCase_23 extends BaseConfig{
+	@Test
+    public void Verify_address_details_in_checkout_page() throws InterruptedException {
 // 1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // 2. Navigate to url
@@ -96,7 +99,6 @@ public class TestCase_23 {
         }
         driver.findElement(By.xpath("//a[text()='Continue']")).click();
         
-        driver.close();
         
     }
 }

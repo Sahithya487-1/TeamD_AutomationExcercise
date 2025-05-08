@@ -6,17 +6,17 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
+import generic_Repository.BaseConfig;
 import page_Repository.BlueTop;
 import page_Repository.HomePage;
 import page_Repository.ProductsPOM;
 
-public class Testcase_08 {
-
-	public static void main(String[] args) {
+public class Testcase_08 extends BaseConfig{
+	@Test
+	public void Verify_All_Products_and_product_detail_page() {
 // 1. Launch browser
-        ChromeDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 // 2. Navigate to url
@@ -62,29 +62,42 @@ public class Testcase_08 {
         BlueTop blueT = new BlueTop(driver);
         
         if(blueT.getBlueTop()) {
-        	System.out.println();
+        	System.out.println("Product name is visible");
+        } else {
+        	System.out.println("Product name is not visible");
         }
         
-        WebElement productName = driver.findElement(By.xpath("//h2[text()='Blue Top']"));
-        System.out.println("Product Name: " + productName.getText());
+        if(blueT.getCategory()) {
+        	System.out.println("Product category is verified");
+        }else {
+        	System.out.println("Product category is not verified");
+        }
         
-        WebElement category = driver.findElement(By.xpath("//p[contains(text(),'Category')]"));
-        System.out.println(category.getText());
+        if(blueT.getPrice()) {
+        	System.out.println("Product price is correct");
+        }else {
+        	System.out.println("Product price is not correct");
+        }
         
-        WebElement price = driver.findElement(By.xpath("//span[text()='Rs. 500']"));
-        System.out.println("Price: " + price.getText());
+        if(blueT.getStock()) {
+        	System.out.println("Product is in stock");
+        }else {
+        	System.out.println("Product is not in stock");
+        }
         
-        WebElement availability = driver.findElement(By.xpath("//p[text()=' In Stock']"));
-        System.out.println(availability.getText());
+        if(blueT.getCondition()) {
+        	System.out.println("Product condition is new");
+        }else {
+        	System.out.println("Product condition is old");
+        }
         
-        WebElement condition = driver.findElement(By.xpath("//p[text()=' New']"));
-        System.out.println(condition.getText());
-        
-        WebElement brand = driver.findElement(By.xpath("//p[text()=' Polo']"));
-        System.out.println(brand.getText());
-
+        if(blueT.getBrand()) {
+        	System.out.println("Product brand is verified");
+        }else {
+        	System.out.println("Product brand is not verified");
+        }
+       
 // Close browser
-        driver.close();
         System.out.println("Test completed successfully");
     }     
 

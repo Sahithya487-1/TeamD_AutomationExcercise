@@ -10,9 +10,8 @@ import page_Repository.HomePage;
 
 public class Testcase_04 extends BaseConfig{
 	@Test
-    public static void main() {
+    public static void Logout_User() {
 // 1. Launch browser
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         
 // 2. Navigate to url
@@ -67,7 +66,7 @@ public class Testcase_04 extends BaseConfig{
         }
         
 // Close browser
-        driver.quit();
+       
         System.out.println("Browser closed - Test completed");
     }
 }

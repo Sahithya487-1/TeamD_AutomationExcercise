@@ -7,16 +7,18 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class Testcase_16 {
-    public static void main(String[] args) throws InterruptedException {
+import generic_Repository.BaseConfig;
+
+public class Testcase_16 extends BaseConfig{
+	@Test
+    public void Place_Order_Login_before_Checkout() throws InterruptedException {
 // Test data
         String email = "adminhotahai@gmail.com"; //enter your own valid email id which has already been created
-        String password = ""; //enter your own valid password
+        String password = "1234567890"; //enter your own valid password
         
 //1. Launch browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         
         JavascriptExecutor js=(JavascriptExecutor) driver;
@@ -135,6 +137,5 @@ public class Testcase_16 {
         driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
 
 // Close browser
-        driver.quit();
     }
 }

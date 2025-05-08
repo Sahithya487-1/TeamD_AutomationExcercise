@@ -6,13 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class TestCase_22 {
+import generic_Repository.BaseConfig;
 
-    public static void main(String[] args) throws InterruptedException {
+public class TestCase_22 extends BaseConfig{
+	@Test
+
+    public void Add_to_cart_from_Recommended_items() throws InterruptedException {
 // 1. Launch browser
-        ChromeDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         
 // 2. Navigate to url
@@ -42,6 +44,5 @@ public class TestCase_22 {
             System.out.println("Product successfully added to cart");
         }
 
-        driver.close();
     }
 }
